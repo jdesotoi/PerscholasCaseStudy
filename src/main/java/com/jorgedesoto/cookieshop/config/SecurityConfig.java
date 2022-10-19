@@ -2,15 +2,16 @@ package com.jorgedesoto.cookieshop.config;
 
 import com.jorgedesoto.cookieshop.service.UserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
+@EnableMethodSecurity
 public class SecurityConfig {
 
     @Autowired
@@ -19,7 +20,7 @@ public class SecurityConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .authorizeRequests(auth ->
-                        auth.mvcMatchers("/", "/shop", "subscription")
+                        auth.mvcMatchers("/", "/shop", "subscription", "/static/**","/css/**", "/js/**","/img/**")
                                 .permitAll()
                                 .anyRequest().authenticated()
                 )
