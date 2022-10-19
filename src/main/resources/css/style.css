@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400;700&display=swap');
+:root {
+  --blue: #D3D5EB;
+  --pink: #FBF2F7;
+  --darkPink: #F6D9E9;
+  --cyan: #BCDCE2;
+  --gray: #f7f7f9;
+  --darkGray: #434343;
+  --black: #000;
+  --mainFont: 'Josefin Sans', sans-serif;
+  --flexGap: 20px;
+
+}
+/* font-family: 'Josefin Sans', sans-serif; */
+
+body{
+  font-family: var(--mainFont);
+  font-size: 14px;
+}
+main, header, footer{
+  max-width: 1100px;
+  margin: 0 auto;
+}
+header{
+  display: block;
+  padding-top: 17px;
+  height: 100px;
+  margin-bottom: 35px;
+}
+.logo{
+  max-width: 100px;
+  float: left;
+}
+.logo img{
+  max-width: 100%;
+}
+nav{
+  display: block;
+  float: right;
+}
+nav ul{
+  display: flex;
+  list-style: none;
+  gap: 15px;
+  padding-top: 70px;
+}
+nav a, .menu a{
+  color:var(--black);
+  font-weight: 100;
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+nav a:hover{
+  color:var(--darkGray);
+  text-decoration: underline;
+}
+footer .menu{
+  list-style: none;
+  padding-left: 0;
+}
+footer .menu a{
+  font-weight: 400;
+  font-size: 1rem;
+
+}
+.owl-carousel{
+  position: relative;
+}
+.owl-carousel .o-item{
+  height: 650px;
+  background-repeat: no-repeat;
+  background-position: center right;
+  display: flex;
+  align-items: center;
+}
+
+.owl-carousel .bannerText{
+  margin-left: 80px;
+}
+.bannerText h2{
+  font-size: 2.5rem;
+  color: #fff;
+}
+.bannerText h2 span{
+  font-weight: 100;
+}
+
+.bannerText button{
+  border: none;
+    padding: 10px;
+    background-color: rgba(255,255,255,1);
+    cursor: pointer;
+}
+.shopCookies:hover{
+  background-color: rgba(255,255,255,.5) ;
+}
+
+#bestSellers{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center;
+  gap:var(--flexGap);
+}
+.productCont{
+  width: 316px;
+}
+.productCont .img{
+  position: absolute;
+}
+.productCont:hover .img{
+opacity: 0;
+}
+.productCont h3{
+  margin-bottom: 5px;
+  font-size: 1.2rem;
+}
+.productCont .textCont p{
+  font-weight: 100;
+  text-align: center;
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+.productCont a{
+  text-decoration: none;
+  color:#000;
+  
+}
+
+.bestSellersSection{
+  border-bottom: 1px solid var(--black);
+  margin-bottom: 75px;
+}
+button#shop{
+  border: 1px var(--black) solid;
+  padding: 15px 30px;
+  background-color: #fff;
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  top: 25px;
+}
+button#shop:hover{
+  background-color: var(--darkPink);
+  color:#fff;
+  cursor: pointer;
+  
+}
+
+h2{
+  font-weight: 100;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 48px;
+  margin-bottom: 23px;
+}
+h3{
+  font-size: 1rem;
+  font-weight: 100;
+  text-align: center;
+}
+#moreBites{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap:var(--flexGap);
+}
+
+.moreBitesContainer{
+  width: 316px;
+  height: 316px;
+  background-position: center center;
+  background-size: cover;
+  
+
+}
+.moreBitesContainer div{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.moreBitesContainer div.hover{
+  background-color: rgba(0, 0, 0, 0.5);
+
+}
+.moreBitesContainer h3{
+  font-size: 2.5rem;
+  color: #fff;
+  opacity: 0;
+}
+.moreBitesContainer h3.hover{
+  opacity: 1;
+}
+.shop{
+  background-color: var(--gray);
+  padding: 1px 0 40px 0;
+}
+.shop h2{
+  margin-top: 36px;
+}
+footer{
+  margin-top: 48px;
+  margin-bottom: 23px;
+  background-color: var(--pink);
+}
+
+footer h2{
+  text-align: left;
+}
+footer input{
+  /* border: 1px var(--black) solid; */
+  padding: 15px 30px;
+}
+footer input:focus{
+  border: 1px var(--pink) solid;
+}
+footer input:focus-visible{
+  border: 1px var(--pink) solid;
+}
+
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-around;
+}
+.getItFresh form{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.getItFresh button{
+  width: 100%;
+  border: none;
+  padding: 15px 30px;
+  background-color: var(--darkPink);
+  margin: 0 auto;
+  display: block;
+  cursor: pointer;
+
+}
+.copy{
+  padding: 20px 0 20px 45px;
+}
+.copy p{
+  color: #727272;
+
+}
+
+table {
+  background-color: #fff;
+  border: 1px solid var(--blue);
+}
+table th{
+  background-color: var(--pink);
+  padding: 15px;
+}
+table td{
+  padding: 0px 40px  40px 40px;
+  text-align: center;
+}
+table td h2{
+  margin-bottom: -3px;
+}
+
+.item{
+display: flex;
+}
+.item .imgCont img{
+  width: 500px;
+  margin: 40px;
+
+}
+.item .formCont{
+padding: 40px;
+width: 100%;
+}
+.item h2{
+  font-size: 2.5rem;
+  margin: 0;
+  text-align: left;
+}
+.item h3{
+  text-align: left;
+  margin-top: 10px;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.item select{
+  padding: 15px 30px;
+  font-size: 1.2rem;
+}
+.item p{
+  font-size: 1.2rem;
+
+}
+.item button{
+    border: none;
+    padding: 15px;
+    background-color: black;
+    cursor: pointer;
+    color:#fff;
+    width: 100%;
+    display: block;
+    margin-top: 15px;
+}
+.item button:hover{
+  background-color: var(--darkGray);
+}
