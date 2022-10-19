@@ -4,20 +4,21 @@ import com.jorgedesoto.cookieshop.entity.Cookie;
 import com.jorgedesoto.cookieshop.entity.CookieImage;
 import com.jorgedesoto.cookieshop.entity.Role;
 import com.jorgedesoto.cookieshop.entity.User;
-import com.jorgedesoto.cookieshop.repository.CookieImageRepository;
 import com.jorgedesoto.cookieshop.repository.CookieRepository;
 import com.jorgedesoto.cookieshop.repository.RoleRepository;
 import com.jorgedesoto.cookieshop.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 public class seeds {
     @Bean
     CommandLineRunner commandLineRunner(CookieRepository cookieR,
                                         RoleRepository roleR,
-                                        UserRepository userR) {
+                                        UserRepository userR,
+                                        PasswordEncoder passwordEncoder) {
         return args -> {
 
             Cookie cookie1 = new Cookie("JAM & POPPY SEED BITES", 2.50,
@@ -26,7 +27,7 @@ public class seeds {
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sagittis elit vitae magna pellentesque, sit amet " +
                             "fermentum tortor malesuada. Nulla facilisi. Ut est nibh, imperdiet non sodales at, eleifend sed urna.", 6);
             CookieImage cookieImage11 = new CookieImage("one.jpg", false);
-            CookieImage cookieImage12 = new CookieImage("four2.webp", true);
+            CookieImage cookieImage12 = new CookieImage("one2.webp", true);
             cookie1.getCookieImages().add(cookieImage11);
             cookie1.getCookieImages().add(cookieImage12);
             cookieR.save(cookie1);
@@ -94,11 +95,11 @@ public class seeds {
             User admin = new User("jorge.desoto@gmail.com",
                     "jorge",
                     "De Soto",
-                    "123");
+                    passwordEncoder.encode("123"));
             User user = new User("m@gmail.com",
                     "Maximo",
                     "De Soto",
-                    "123");
+                    passwordEncoder.encode("123"));
 
             User u = userR.save(user);
             User a = userR.save(admin);

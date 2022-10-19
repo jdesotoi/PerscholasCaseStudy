@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<th:block th:fragment="menuLinks">
+    <li>
+        <a th:classappend="${#httpServletRequest.getRequestURI() == '/' ? 'active':''}"
+                href="/">
+            Home
+        </a>
+    </li>
+    <li>
+        <a th:classappend="${#httpServletRequest.getRequestURI().startsWith('/shop') ? 'active':''}"
+           href="/shop">
+            Shop
+        </a>
+    </li>
+    <li>
+        <a th:classappend="${#httpServletRequest.getRequestURI().startsWith('/subscription') ? 'active':''}"
+           href="/subscription">
+            Subscription
+        </a>
+    </li>
+</th:block>
+</body>
+</html>

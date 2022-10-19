@@ -50,6 +50,10 @@ nav a, .menu a{
   text-decoration: none;
   font-size: 1.3rem;
 }
+nav a, .menu a.active{
+    color:var(--darkGray);
+  text-decoration: underline;
+}
 nav a:hover{
   color:var(--darkGray);
   text-decoration: underline;
@@ -130,7 +134,7 @@ opacity: 0;
   border-bottom: 1px solid var(--black);
   margin-bottom: 75px;
 }
-button#shop{
+a#shop{
   border: 1px var(--black) solid;
   padding: 15px 30px;
   background-color: #fff;
@@ -138,8 +142,12 @@ button#shop{
   display: block;
   position: relative;
   top: 25px;
+  max-width: 175px;
+  text-align: center;
+  color: var(--black);
+  text-decoration: none;
 }
-button#shop:hover{
+a#shop:hover{
   background-color: var(--darkPink);
   color:#fff;
   cursor: pointer;

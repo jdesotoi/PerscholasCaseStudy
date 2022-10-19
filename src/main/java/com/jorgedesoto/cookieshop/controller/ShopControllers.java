@@ -7,23 +7,28 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import java.util.Optional;
 
 @Controller
-public class MainController {
-
+public class ShopControllers {
     private CookieRepository cookieRepository;
 
     @Autowired
-    public MainController(CookieRepository cookieRepository) {
+    public ShopControllers(CookieRepository cookieRepository) {
         this.cookieRepository = cookieRepository;
     }
-
-    @GetMapping
-    public String home(Model model){
-        Iterable<Cookie> cookies = cookieRepository.findFirst3();
+//    @PreAuthorize("has  Role('ROLE_USER')")
+    @GetMapping("/shop")
+    public  String shop(Model model){
+        Iterable<Cookie> cookies = cookieRepository.findAll();
         model.addAttribute("cookies",cookies);
-        return "index";
+        return "shop";
     }
-//    @PreAuthorize("hasRole('ROLE_USER')")
-
+    @GetMapping("/shop/cookie/{id}")
+    public String shopCookie(@PathVariable(value="id") String id){
+        Optional<Cookie> cookie = cookieRepository.findById( Long.parseLong(id) );
+        return "Shop";
+    }
 }

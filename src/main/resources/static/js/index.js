@@ -1,15 +1,12 @@
 import { shop, moreBites, menu } from "/js/initialData.js";
 import {
   printMoreBites,
-  printProducts,
-  PrintMenu,
-
   getItFresh
 } from "/js/function.js";
 
-printProducts(3, shop);
+
 printMoreBites(moreBites);
-PrintMenu(menu);
+
 getItFresh();
 
 let moreBitesCont = document.querySelectorAll(".moreBitesContainer");
