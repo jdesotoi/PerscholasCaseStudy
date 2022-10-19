@@ -12,18 +12,16 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(exclude = {"users"})
+@EqualsAndHashCode
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class CookieImage {
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
     String name;
-    boolean bite;
-    @ManyToMany(mappedBy = "cookieImages")
-    private Set<Cookie> cookies = new HashSet<>();
-    public CookieImage(String name, boolean bite) {
-        this.name = name;
-        this.bite = bite;
+    @ManyToMany(mappedBy = "roles")
+    private Set<User> users = new HashSet<>();
+    public Role(String roleName) {
+        this.name = roleName;
     }
 }

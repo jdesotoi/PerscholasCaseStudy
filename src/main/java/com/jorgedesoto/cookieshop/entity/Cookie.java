@@ -20,12 +20,12 @@ public class Cookie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
     String name;
-    int price;
+    double price;
     String info;
     String detail;
     int quantity;
 
-    public Cookie(String name, int price, String info, String detail, int quantity) {
+    public Cookie(String name, double price, String info, String detail, int quantity) {
         this.name = name;
         this.price = price;
         this.info = info;
@@ -33,8 +33,8 @@ public class Cookie {
         this.quantity = quantity;
     }
     @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-    @JoinTable(name = "app_user_address",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "address_id"))
+    @JoinTable(name = "cookie_cookie_image",
+            joinColumns = @JoinColumn(name = "cookie_id"),
+            inverseJoinColumns = @JoinColumn(name = "cookie_image_id"))
     private Set<CookieImage> cookieImages = new HashSet<>();
 }
