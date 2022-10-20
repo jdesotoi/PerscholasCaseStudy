@@ -38,6 +38,12 @@
                 Cookies
             </a>
         </li>
+    <li>
+        <a th:classappend="${#httpServletRequest.getRequestURI().startsWith('/addCookie') ? 'active':''}"
+           href="/addCookie">
+            Add Cookies
+        </a>
+    </li>
 <!--    </th:block>-->
 </th:block>
 </body>

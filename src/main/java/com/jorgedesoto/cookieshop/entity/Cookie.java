@@ -5,6 +5,7 @@ import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 @Entity
@@ -31,6 +32,19 @@ public class Cookie {
         this.info = info;
         this.detail = detail;
         this.quantity = quantity;
+    }
+
+    public void removeAllCookieImages() {
+        Iterator<CookieImage> iterator = this.cookieImages.iterator();
+        while (iterator.hasNext()) {
+            CookieImage cookieImage = iterator.next();
+            cookieImage.getCookies().remove(this);
+            iterator.remove();
+        }
+    }
+    public void removeCookieImage(CookieImage cookieImage) {
+        this.cookieImages.remove(cookieImage);
+        cookieImage.getCookies().remove( this);
     }
     @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     @JoinTable(name = "cookie_cookie_image",

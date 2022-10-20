@@ -134,7 +134,7 @@ opacity: 0;
   border-bottom: 1px solid var(--black);
   margin-bottom: 75px;
 }
-a#shop{
+a#shop, .jds-btn-pink, .jds-btn-blue{
   border: 1px var(--black) solid;
   padding: 15px 30px;
   background-color: #fff;
@@ -147,13 +147,18 @@ a#shop{
   color: var(--black);
   text-decoration: none;
 }
-a#shop:hover{
+a#shop:hover, .jds-btn-pink:hover, .jds-btn-blue:hover{
   background-color: var(--darkPink);
   color:#fff;
   cursor: pointer;
-  
 }
-
+.jds-btn-pink, .jds-btn-blue{
+position: initial;
+    width: 74px;
+    padding: 10px;
+    margin: 0 10px 0 0;
+    float: left;
+}
 h2{
   font-weight: 100;
   font-size: 1.5rem;

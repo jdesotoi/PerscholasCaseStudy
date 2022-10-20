@@ -22,8 +22,8 @@
                 <p th:text="${cookie.price}">3.00</p>
             </div>
         </a>
-        <a th:href="'/cookies/'+${cookie.id}" class="btn btn-outline-dark">Edit</a>
-        <a href="" class="btn btn-outline-dark">Delete</a>
+        <a th:href="'/cookies/'+${cookie.id}" class="jds-btn-blue ">Edit</a>
+        <a  th:href="'/deleteCookie/'+${cookie.id}" class="jds-btn-pink ">Delete</a>
     </div>
 </th:block>
 </body>

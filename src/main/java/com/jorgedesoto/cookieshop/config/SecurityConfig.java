@@ -19,9 +19,12 @@ public class SecurityConfig {
     @Autowired
     private UserDetailService userDetailService;
 
+    /**
+     * Security configuration for application
+     */
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http
+        return http.csrf(csrf -> csrf.disable())
                 .authorizeRequests(auth -> auth
                         .mvcMatchers("/", "/shop/**", "/subscription", "/static/**", "/css/**", "/js/**", "/img/**")
                         .permitAll()
