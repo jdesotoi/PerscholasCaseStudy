@@ -330,3 +330,14 @@ width: 100%;
 .item.login label{
     font-weight:bold;
 }
+.shop.editCookie #bestSellers{
+display:block;
+padding:100px
+}
+.shop.editCookie #bestSellers .formCont{
+padding-top:0;
+}
+.shop.editCookie #bestSellers .formCont #addToCart{
+    max-width: 282px;
+    margin: 0 auto;
+}

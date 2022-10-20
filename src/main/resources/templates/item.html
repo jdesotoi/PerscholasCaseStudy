@@ -32,7 +32,7 @@
                 <div class="formCont">
                     <h2 th:text="${cookie.name} ">Name</h2>
                     <h3>sku: 000<span th:text="${cookie.id}" id="sku">${product.SKU}</span></h3>
-                    <p th:text="'\$'+${cookie.price}">${product.price}</p>
+                    <p th:text="'$'+${cookie.price}">${product.price}</p>
                     <p>Quantity</p>
                     <form action="#">
                         <select name="quantity" id="quantity">
