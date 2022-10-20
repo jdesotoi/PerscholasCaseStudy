@@ -18,24 +18,33 @@ public class SecurityConfig {
 
     @Autowired
     private UserDetailService userDetailService;
+
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .authorizeRequests(auth -> auth
-                                .mvcMatchers("/", "/shop/**", "subscription", "/static/**","/css/**", "/js/**","/img/**")
-                                .permitAll()
-                                .anyRequest().authenticated()
+                        .mvcMatchers("/", "/shop/**", "/subscription", "/static/**", "/css/**", "/js/**", "/img/**")
+                        .permitAll()
+                        .anyRequest().authenticated()
                 )
                 .formLogin(formLogin -> formLogin
 //                        .loginPage("/login")
                         .permitAll()
                         .passwordParameter("password")
-                        .usernameParameter("email"))
+                        .usernameParameter("email")
+                        .defaultSuccessUrl("/")
+                )
+                .logout(logout -> logout
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/")
+                )
                 .userDetailsService(userDetailService)
+
                 .build();
     }
+
     @Bean
-    PasswordEncoder passwordEncoder(){
+    PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(10);
     }
 }

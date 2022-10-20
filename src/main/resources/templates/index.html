@@ -14,7 +14,8 @@
     </div>
     <nav>
         <ul class="menu">
-            <th:block th:replace="/fragments/menuFragment :: menuLinks"/>
+            <th:block th:replace="/fragments/menuFragment :: menuLinks(isLogin=${isLogin})"/>
+
         </ul>
     </nav>
 </header>

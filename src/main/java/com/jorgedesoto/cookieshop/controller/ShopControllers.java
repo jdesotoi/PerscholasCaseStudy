@@ -3,7 +3,6 @@ package com.jorgedesoto.cookieshop.controller;
 import com.jorgedesoto.cookieshop.entity.Cookie;
 import com.jorgedesoto.cookieshop.repository.CookieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,8 +26,9 @@ public class ShopControllers {
         return "shop";
     }
     @GetMapping("/shop/cookie/{id}")
-    public String shopCookie(@PathVariable(value="id") String id){
-        Optional<Cookie> cookie = cookieRepository.findById( Long.parseLong(id) );
-        return "Shop";
+    public String shopCookie(@PathVariable(value="id") String id, Model model){
+        Cookie cookie = cookieRepository.findById( Long.parseLong(id) ).get();
+        model.addAttribute("cookie",cookie);
+        return "item";
     }
 }

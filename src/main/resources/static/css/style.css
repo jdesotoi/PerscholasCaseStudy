@@ -318,3 +318,15 @@ width: 100%;
 .item button:hover{
   background-color: var(--darkGray);
 }
+.item.login .imgCont img {
+    width: 420px;
+    }
+
+.item.login{
+    background-color:#f1cfdf;
+    margin-top: 43px;
+    margin-bottom: 7px;
+}
+.item.login label{
+    font-weight:bold;
+}

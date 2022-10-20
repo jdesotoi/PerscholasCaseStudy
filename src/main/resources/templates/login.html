@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Cookies</title>
+    <th:block th:replace="/fragments/headFragments :: styles"/>
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="/img/jdsL.png" alt="JDS Logo">
+    </div>
+    <nav>
+        <ul class="menu">
+            <th:block th:replace="/fragments/menuFragment :: menuLinks"/>
+        </ul>
+    </nav>
+</header>
+<main class="shop">
+    <section>
+        <!--    colo f1cfdf-->
+        <div id="bestSellers">
+            <div class="item login">
+                <div class="imgCont">
+                    <img src="/img/login.jpg" alt="Login">
+                </div>
+                <div class="formCont">
+                    <h2>Login</h2>
+                    <p>Quantity</p>
+                    <form action="/login" method="post">
+                        <div class="row">
+                            <div class="mb-3">
+                                <label for="email">Email</label>
+                                <input class="form-control" type="email" name="email" id="email"
+                                       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="from-label">Confirm Password</label>
+                                <input class="form-control" type="password" name="password" id="password">
+                            </div>
+                        </div>
+
+                        <button type="submit" id="addToCart">Login</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<th:block th:replace="/fragments/footerFragment :: footer"/>
+<th:block th:replace="/fragments/scriptFragments :: footerScripts"/>
+<!--  <script type="module" src="/js/item.js"></script>-->
+</body>
+</html>

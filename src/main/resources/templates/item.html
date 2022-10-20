@@ -1,68 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shop Cookies</title>
-  <link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Cookies</title>
+    <th:block th:replace="/fragments/headFragments :: styles"/>
 </head>
 <body>
-  <header>
+<header>
     <div class="logo">
-      <img src="/img/jdsL.png" alt="JDS Logo">
+        <img src="/img/jdsL.png" alt="JDS Logo">
     </div>
     <nav>
-      <ul class="menu">
-     
-      </ul>
-    </nav>
-  </header>
-  <main class="shop">
-    <section>
-     
-      <div id="bestSellers">
-
-      </div>
-    </section>
-  </main>
-  <footer>
-    <div class="flex">
-      <div class="footerMenu">
-        <h2>SHOP</h2>
-        <ul class="menu">
+    <ul class="menu">
+            <th:block th:replace="/fragments/menuFragment :: menuLinks"/>
         </ul>
-      </div>
-      <div>
-        <h2>OPENING HOURS:</h2>
-        <p>
-          Mon - Fri: 7am - 10pm   <br>​​
-          Saturday: 8am - 10pm <br>
-          Sunday: 8am - 11pm
-        </p>
-      </div> 
-      <div>
-        <h2>ADDRESS</h2>
-        <P>
-          Lorem ipsum dolor sit amet. <br>
-          Lorem ipsum dolor sit. <br>
-          Lorem ipsum.         
-        </P>
-      </div>
-       
-      <div class="getItFresh">
-      <h2>GET IT FRESH</h2>
-      <form action="#">
-        <input type="text" placeholder="Email Address">
-        <button type="submit" id="subscribe">SUBSCRIBE NOW</button>
-      </form>
-    </div>
-    </div>
-    <div class="copy">
-      <p>Jorge De Soto | AD - SBA - HTML/CSS/JavaScript</p>
-    </div>
+    </nav>
+</header>
+<main class="shop">
+    <section>
 
-  </footer>
-  <script type="module" src="/js/item.js"></script>
+        <div id="bestSellers">
+            <div class="item">
+                <div class="imgCont">
+                    <th:block th:each="img:${cookie.cookieImages}">
+                        <img th:if="${img.bite}" th:src="'/img/'+${img.name}" th:alt="${cookie.name}">
+
+                    </th:block>
+                </div>
+                <div class="formCont">
+                    <h2 th:text="${cookie.name} ">Name</h2>
+                    <h3>sku: 000<span th:text="${cookie.id}" id="sku">${product.SKU}</span></h3>
+                    <p th:text="'\$'+${cookie.price}">${product.price}</p>
+                    <p>Quantity</p>
+                    <form action="#">
+                        <select name="quantity" id="quantity">
+                            <th:block th:each="i:${#numbers.sequence(1,cookie.quantity)}">
+                                <option th:text="${i}" th:value="${i}">0</option>
+                            </th:block>
+                            ${selectOptions}
+                        </select>
+                        <br>
+                        <button type="submit" id="addToCart">ADD TO CART</button>
+                    </form>
+                    <p>Description</p>
+                    <p th:text="${cookie.detail}">
+                        ${product.detail}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<th:block th:replace="/fragments/footerFragment :: footer"/>
+<th:block th:replace="/fragments/scriptFragments :: footerScripts"/>
+<!--  <script type="module" src="/js/item.js"></script>-->
 </body>
 </html>

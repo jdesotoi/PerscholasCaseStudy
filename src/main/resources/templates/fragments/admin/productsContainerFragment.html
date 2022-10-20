@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<th:block th:fragment="product">
+    <div class="productCont">
+        <a th:href="'/shop/cookie/'+${cookie.id}">
+            <th:block th:each="img: ${cookie.cookieImages}" th:if="!${img.bite}">
+
+                <img  class="img" th:src="'/img/'+${img.name}" th:alt="${cookie.name}">
+            </th:block>
+            <th:block th:each="img: ${cookie.cookieImages}" th:if="${img.bite}">
+                <img  class="img2" th:src="'/img/'+${img.name}" th:alt="${cookie.name}">
+            </th:block>
+            <div class="textCont mt-3">
+                <h3 th:text="${cookie.name}">
+                    Name
+                </h3>
+                <p th:text="${cookie.price}">3.00</p>
+                <a href="" class="btn btn-outline-dark">Edit</a>
+                <a href="" class="btn btn-outline-dark">Delete</a>
+            </div>
+        </a>
+    </div>
+</th:block>
+</body>
+</html>

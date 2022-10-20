@@ -24,6 +24,21 @@
             Subscription
         </a>
     </li>
+    <li>
+        <a th:classappend="${#httpServletRequest.getRequestURI().startsWith('/login') ? 'active':''}"
+           href="/login">
+            Login
+        </a>
+    </li>
+<!--    <p th:text="${isLogin}"></p>-->
+<!--    <th:block th:if="${isLogin}">-->
+        <li>
+            <a th:classappend="${#httpServletRequest.getRequestURI().startsWith('/cookies') ? 'active':''}"
+               href="/cookies">
+                Cookies
+            </a>
+        </li>
+<!--    </th:block>-->
 </th:block>
 </body>
 </html>
