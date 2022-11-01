@@ -34,5 +34,9 @@ public class MainController {
     public String login(){
         return "login";
     }
+    @GetMapping("/subscription")
+    public String subscription(){
+        return "subscription";
+    }
 
 }

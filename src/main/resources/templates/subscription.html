@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shop Cookies</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <th:block th:replace="/fragments/headFragments :: styles"/>
 </head>
 <body>
   <header>
@@ -14,7 +14,7 @@
     </div>
     <nav>
       <ul class="menu">
-     
+        <th:block th:replace="/fragments/menuFragment :: menuLinks"/>
       </ul>
     </nav>
   </header>
@@ -52,43 +52,8 @@
       </div>
     </section>
   </main>
-  <footer>
-    <div class="flex">
-      <div class="footerMenu">
-        <h2>SHOP</h2>
-        <ul class="menu">
-        </ul>
-      </div>
-      <div>
-        <h2>OPENING HOURS:</h2>
-        <p>
-          Mon - Fri: 7am - 10pm   <br>​​
-          Saturday: 8am - 10pm <br>
-          Sunday: 8am - 11pm
-        </p>
-      </div> 
-      <div>
-        <h2>ADDRESS</h2>
-        <P>
-          Lorem ipsum dolor sit amet. <br>
-          Lorem ipsum dolor sit. <br>
-          Lorem ipsum.         
-        </P>
-      </div>
-       
-      <div class="getItFresh">
-      <h2>GET IT FRESH</h2>
-      <form action="#">
-        <input type="text" placeholder="Email Address">
-        <button type="submit" id="subscribe">SUBSCRIBE NOW</button>
-      </form>
-    </div>
-    </div>
-    <div class="copy">
-      <p>Jorge De Soto | AD - SBA - HTML/CSS/JavaScript</p>
-    </div>
-
-  </footer>
-  <script type="module" src="/js/sub.js"></script>
+  <th:block th:replace="/fragments/footerFragment :: footer"/>
+  <th:block th:replace="/fragments/scriptFragments :: footerScripts"/>
+<!--  <script type="module" src="/js/sub.js"></script>-->
 </body>
 </html>
